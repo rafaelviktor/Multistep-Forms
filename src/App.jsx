@@ -1,0 +1,83 @@
+import { useState, useEffect } from 'react'
+import './App.css'
+import Header from './Header.jsx'
+import Footer from './Footer.jsx'
+import API from './API.json'
+
+function App() {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [finalizado, setFinalizado] = useState(false);
+  const [TitlPerg, setTitlPerg] = useState('')
+  const [DescrPerg, setDescrPerg] = useState('Gostariamos de saber seu nível de satisfação através deste breve questionário.')
+  const [buttonName, setButtonName] = useState('Iniciar');
+
+  const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+  const alphabet = alpha.map((x) => String.fromCharCode(x));
+
+  useEffect(() => {
+    setTitlPerg(API.Nome)
+  }, []);
+
+  function nextStep() {
+    if(currentStep > (API.Perguntas.length-1)) {
+      setFinalizado(true);
+      setTitlPerg('Agradecemos pelo feedback!')
+      setDescrPerg('Respostas registradas com sucesso.');
+    } else if(currentStep == API.Perguntas.length-1) {
+      setCurrentStep(currentStep+1)
+      setButtonName('Enviar respostas');
+      setTitlPerg(API.Perguntas[currentStep].Nome)
+    } else {
+      setTitlPerg(API.Perguntas[currentStep].Nome)
+      setButtonName('Próximo');
+      setCurrentStep(currentStep+1)
+    }
+  }
+
+  function stepBack() {
+    if(currentStep == 1) {
+      setTitlPerg(API.Nome)
+      setButtonName('Iniciar');
+    } else {
+      setTitlPerg(API.Perguntas[currentStep-2].Nome)
+      setButtonName('Próximo');
+    }
+    setCurrentStep(currentStep-1)
+  }
+
+  function selectOption(id, question) {
+    if(API.Perguntas[currentStep].Tipo == 1) { //TIPO 1 Uma escolha
+
+    } else { //TIPO 2 Múltipla escolha
+      
+    }
+  }
+
+  return (
+    <>
+      <Header />
+      <main>
+        <div className='container'>
+          <section>
+          <span className='text-muted'>{currentStep == 0 ? API.Perguntas.length+' Pergunta(s)':'Pergunta '+currentStep+' de '+API.Perguntas.length}</span>
+            <h2>{TitlPerg}</h2>
+            <span>{DescrPerg}</span>
+          </section>
+          {currentStep != 0 && finalizado != true &&
+          <section>
+            <ul>
+            {API.Perguntas[currentStep-1].Respostas.map(function(op, idx){
+              return (<li key={idx} onClick={() => selectOption()}><span className='item'>{alphabet[idx]}.</span> {op.Nome}</li>)
+            })}
+            </ul>
+          </section>}
+          {currentStep != 0 && finalizado != true && <button className='o-btn o-btn-muted' onClick={() => stepBack()}><span>Voltar</span></button>}
+          {finalizado != true && <button className='o-btn o-btn-action' onClick={() => nextStep()}><span>{buttonName}</span></button>}
+        </div>
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+export default App

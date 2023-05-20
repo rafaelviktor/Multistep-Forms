@@ -1,0 +1,65 @@
+{
+    "Nome": "Treinamento Financeiro",
+    "Perguntas": [
+        {
+            "id": 1,
+            "Nome": "Como você avalia o sistema?",
+            "Tipo": 1,
+            "Respostas": [
+            { "Id": 4, "Nome": "Bom" },
+            { "Id": 5, "Nome": "Ruim" }
+            ]
+        },
+        {
+            "id": 2,
+            "Nome": "Como você avalia os funcionários em geral?",
+            "Tipo": 3,
+            "Respostas": [
+            { "Id": 1, "Nome": "Ruins" },
+            { "Id": 2, "Nome": "Regulares" },
+            { "Id": 3, "Nome": "Bons" },
+            { "Id": 4, "Nome": "Excelentes" }
+            ] 
+        },
+        {
+            "id": 3,
+            "Nome": "Qual das opções mais reflete a sua opinião sobre o nosso serviço?",
+            "Tipo": 5,
+            "Respostas": [
+            { "Id": 1, "Nome": "Bom" },
+            { "Id": 2, "Nome": "Ótimo" },
+            { "Id": 3, "Nome": "Excelente" }
+            ]
+        },
+        {
+            "id": 1,
+            "Nome": "Como você avalia o sistema?",
+            "Tipo": 1,
+            "Respostas": [
+            { "Id": 4, "Nome": "Bom" },
+            { "Id": 5, "Nome": "Ruim" }
+            ]
+        },
+        {
+            "id": 3,
+            "Nome": "Qual das opções mais reflete a sua opinião sobre o nosso serviço?",
+            "Tipo": 5,
+            "Respostas": [
+            { "Id": 1, "Nome": "Bom" },
+            { "Id": 2, "Nome": "Ótimo" },
+            { "Id": 3, "Nome": "Excelente" }
+            ]
+        },
+        {
+            "id": 2,
+            "Nome": "Como você avalia os funcionários em geral?",
+            "Tipo": 3,
+            "Respostas": [
+            { "Id": 1, "Nome": "Ruins" },
+            { "Id": 2, "Nome": "Regulares" },
+            { "Id": 3, "Nome": "Bons" },
+            { "Id": 4, "Nome": "Excelentes" }
+            ] 
+        }
+    ]
+}

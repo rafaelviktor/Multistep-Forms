@@ -19,13 +19,20 @@ function App() {
   }, []);
 
   function nextStep() {
-    if(currentStep != 0) {
-      var obj = API.Perguntas[currentStep-1];
-      for(var i = 0; i < obj.Respostas.length; i++) {
+    var obj = API.Perguntas;
+    if(currentStep != obj.length) {
+      if(obj[currentStep].Tipo == 1) { //TIPO 1 Uma escolha 
+        setDescrPerg('Selecione apenas uma das opções');
+      } else {
+        setDescrPerg('Selecione uma ou mais opções');
+      }
+
+      for(var i = 0; i < obj[currentStep].Respostas.length; i++) {
         var element = document.getElementById(i);
-        if(element.classList.contains("selected")) {
-          element.classList.remove("selected");
-        }
+        if(element != null)
+          if(element.classList.contains("selected")) {
+            element.classList.remove("selected");
+          }
       }
     }
     if(currentStep > (API.Perguntas.length-1)) {
@@ -48,22 +55,27 @@ function App() {
     if(obj.Tipo == 1) { //TIPO 1 Uma escolha
       for(var i = 0; i < obj.Respostas.length; i++) {
         var element = document.getElementById(i);
-        if(element.classList.contains("selected")) {
-          element.classList.remove("selected");
-        }
+        if(element != null)
+          if(element.classList.contains("selected")) {
+            element.classList.remove("selected");
+          }
       }
       var element = document.getElementById(idx);
-      if(element.classList.contains("selected")) {
-        element.classList.remove("selected");
-      } else {
-        element.classList.add("selected");
+      if(element != null) {
+        if(element.classList.contains("selected")) {
+          element.classList.remove("selected");
+        } else {
+          element.classList.add("selected");
+        }
       }
     } else { //TIPO 2 Múltipla escolha
       var element = document.getElementById(idx);
-      if(element.classList.contains("selected")) {
-        element.classList.remove("selected");
-      } else {
-        element.classList.add("selected");
+      if(element != null) {
+        if(element.classList.contains("selected")) {
+          element.classList.remove("selected");
+        } else {
+          element.classList.add("selected");
+        }
       }
     }
   }

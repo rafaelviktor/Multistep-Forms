@@ -60,6 +60,15 @@
             { "Id": 3, "Nome": "Bons" },
             { "Id": 4, "Nome": "Excelentes" }
             ] 
+        },
+        {
+            "id": 1,
+            "Nome": "Como você avalia o sistema?",
+            "Tipo": 1,
+            "Respostas": [
+            { "Id": 4, "Nome": "Bom" },
+            { "Id": 5, "Nome": "Ruim" }
+            ]
         }
     ]
 }

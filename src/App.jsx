@@ -43,26 +43,6 @@ function App() {
     }
   }
 
-  function stepBack() {
-    if(currentStep != 0) {
-      var obj = API.Perguntas[currentStep-1];
-      for(var i = 0; i < obj.Respostas.length; i++) {
-        var element = document.getElementById(i);
-        if(element.classList.contains("selected")) {
-          element.classList.remove("selected");
-        }
-      }
-    }
-    if(currentStep == 1) {
-      setTitlPerg(API.Nome)
-      setButtonName('Iniciar');
-    } else {
-      setTitlPerg(API.Perguntas[currentStep-2].Nome)
-      setButtonName('Próximo');
-    }
-    setCurrentStep(currentStep-1)
-  }
-
   function selectOption(idx) {
     var obj = API.Perguntas[currentStep-1];
     if(obj.Tipo == 1) { //TIPO 1 Uma escolha
@@ -106,7 +86,6 @@ function App() {
             })}
             </ul>
           </section>}
-          {currentStep != 0 && finalizado != true && <button className='o-btn o-btn-muted' onClick={() => stepBack()}><span>Voltar</span></button>}
           {finalizado != true && <button className='o-btn o-btn-action' onClick={() => nextStep()}><span>{buttonName}</span></button>}
         </div>
       </main>

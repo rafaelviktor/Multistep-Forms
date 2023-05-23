@@ -19,6 +19,15 @@ function App() {
   }, []);
 
   function nextStep() {
+    if(currentStep != 0) {
+      var obj = API.Perguntas[currentStep-1];
+      for(var i = 0; i < obj.Respostas.length; i++) {
+        var element = document.getElementById(i);
+        if(element.classList.contains("selected")) {
+          element.classList.remove("selected");
+        }
+      }
+    }
     if(currentStep > (API.Perguntas.length-1)) {
       setFinalizado(true);
       setTitlPerg('Agradecemos pelo feedback!')
@@ -35,6 +44,15 @@ function App() {
   }
 
   function stepBack() {
+    if(currentStep != 0) {
+      var obj = API.Perguntas[currentStep-1];
+      for(var i = 0; i < obj.Respostas.length; i++) {
+        var element = document.getElementById(i);
+        if(element.classList.contains("selected")) {
+          element.classList.remove("selected");
+        }
+      }
+    }
     if(currentStep == 1) {
       setTitlPerg(API.Nome)
       setButtonName('Iniciar');
@@ -45,11 +63,28 @@ function App() {
     setCurrentStep(currentStep-1)
   }
 
-  function selectOption(id, question) {
-    if(API.Perguntas[currentStep].Tipo == 1) { //TIPO 1 Uma escolha
-
+  function selectOption(idx) {
+    var obj = API.Perguntas[currentStep-1];
+    if(obj.Tipo == 1) { //TIPO 1 Uma escolha
+      for(var i = 0; i < obj.Respostas.length; i++) {
+        var element = document.getElementById(i);
+        if(element.classList.contains("selected")) {
+          element.classList.remove("selected");
+        }
+      }
+      var element = document.getElementById(idx);
+      if(element.classList.contains("selected")) {
+        element.classList.remove("selected");
+      } else {
+        element.classList.add("selected");
+      }
     } else { //TIPO 2 Múltipla escolha
-      
+      var element = document.getElementById(idx);
+      if(element.classList.contains("selected")) {
+        element.classList.remove("selected");
+      } else {
+        element.classList.add("selected");
+      }
     }
   }
 
@@ -67,7 +102,7 @@ function App() {
           <section>
             <ul>
             {API.Perguntas[currentStep-1].Respostas.map(function(op, idx){
-              return (<li key={idx} onClick={() => selectOption()}><span className='item'>{alphabet[idx]}.</span> {op.Nome}</li>)
+              return (<li key={idx} id={idx} onClick={() => selectOption(idx)}><span className='item'>{alphabet[idx]}</span> {op.Nome}</li>)
             })}
             </ul>
           </section>}

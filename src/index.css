@@ -77,6 +77,10 @@ span.text-muted {
         color: var(--izzy-secondary-text-color);
 }
 
+span.item {
+    padding-right: 8px;
+}
+
 section {
     margin-bottom: 30px;
 }
@@ -175,7 +179,7 @@ footer {
 
     li.selected {
         background-color: var(--izzy-header-color);
-        color: #000000;
+        color: var(--izzy-secondary-text-color);
     }
     
 }

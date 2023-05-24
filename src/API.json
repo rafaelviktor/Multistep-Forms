@@ -6,8 +6,10 @@
             "Nome": "Como você avalia o sistema?",
             "Tipo": 1,
             "Respostas": [
-            { "Id": 4, "Nome": "Bom" },
-            { "Id": 5, "Nome": "Ruim" }
+            { "Id": 3, "Nome": "Bom" },
+            { "Id": 4, "Nome": "Médio" },
+            { "Id": 5, "Nome": "Ruim" },
+            { "Id": 6, "Nome": "Péssimo" }
             ]
         },
         {

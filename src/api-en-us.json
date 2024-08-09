@@ -1,0 +1,79 @@
+{
+    "Name": "Financial Training",
+    "Questions": [
+        {
+            "id": 1,
+            "Name": "How do you rate the overall management system?",
+            "Type": 1,
+            "Answers": [
+                { "Id": 3, "Name": "Good" },
+                { "Id": 4, "Name": "Average" },
+                { "Id": 5, "Name": "Poor" },
+                { "Id": 6, "Name": "Terrible" }
+            ]
+        },
+        {
+            "id": 2,
+            "Name": "How do you rate the efficiency of the staff using the system?",
+            "Type": 3,
+            "Answers": [
+                { "Id": 1, "Name": "Poor" },
+                { "Id": 2, "Name": "Fair" },
+                { "Id": 3, "Name": "Good" },
+                { "Id": 4, "Name": "Excellent" }
+            ] 
+        },
+        {
+            "id": 3,
+            "Name": "What is your opinion on the system’s interface?",
+            "Type": 5,
+            "Answers": [
+                { "Id": 1, "Name": "Unsatisfactory" },
+                { "Id": 2, "Name": "Satisfactory" },
+                { "Id": 3, "Name": "Very Good" }
+            ]
+        },
+        {
+            "id": 4,
+            "Name": "Does the system meet your needs effectively?",
+            "Type": 1,
+            "Answers": [
+                { "Id": 3, "Name": "Yes" },
+                { "Id": 4, "Name": "No" }
+            ]
+        },
+        {
+            "id": 5,
+            "Name": "How would you rate the quality of the technical support provided?",
+            "Type": 5,
+            "Answers": [
+                { "Id": 1, "Name": "Very Poor" },
+                { "Id": 2, "Name": "Poor" },
+                { "Id": 3, "Name": "Good" },
+                { "Id": 4, "Name": "Excellent" }
+            ]
+        },
+        {
+            "id": 6,
+            "Name": "How easy is it for you to find information and resources within the system?",
+            "Type": 3,
+            "Answers": [
+                { "Id": 1, "Name": "Very Difficult" },
+                { "Id": 2, "Name": "Difficult" },
+                { "Id": 3, "Name": "Easy" },
+                { "Id": 4, "Name": "Very Easy" }
+            ] 
+        },
+        {
+            "id": 7,
+            "Name": "How likely are you to recommend this system to others?",
+            "Type": 5,
+            "Answers": [
+                { "Id": 1, "Name": "Very Unlikely" },
+                { "Id": 2, "Name": "Unlikely" },
+                { "Id": 3, "Name": "Likely" },
+                { "Id": 4, "Name": "Very Likely" }
+            ]
+        }
+    ]
+}

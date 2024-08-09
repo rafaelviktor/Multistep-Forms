@@ -141,6 +141,39 @@ li.selected {
     color: var(--izzy-arrow-color);
 }
 
+.language-selector {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .language-selector label {
+    margin-right: 10px;
+    font-size: 16px;
+    color: #333333; /* Dark text color for the label */
+  }
+  
+  .language-selector select {
+    background-color: #ffffff; /* White background for the select */
+    color: #333333; /* Dark text color for the options */
+    border: 1px solid #cccccc; /* Light border for the select */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px 12px; /* Padding inside select */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .language-selector select:hover {
+    background-color: #f5f5f5; /* Slightly darker background on hover */
+  }
+  
+  .language-selector select:focus {
+    outline: none;
+    border-color: #007bff; /* Blue border on focus */
+    background-color: #e9ecef; /* Slightly darker background on focus */
+  }
+
 footer {
     position: fixed;
     bottom: 0;
@@ -153,6 +186,8 @@ footer {
 .footer-inner-wrap {
     text-align: right;
     padding: 11px 20px 12px;
+    background-color: var(--izzy-header-color);
+    border-top: 2px solid var(--izzy-header-border-color);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -163,7 +198,6 @@ footer {
 
     #header {
         background-color: var(--izzy-header-color-dark);
-        border-bottom: 2px solid var(--izzy-header-border-color);
         padding-top: 0.6em;
         padding-bottom: 0.6em;
         box-shadow: 0 0px 20px 0 rgb(0 0 0 / 13%);;
@@ -183,4 +217,26 @@ footer {
         color: var(--izzy-secondary-text-color);
     }
     
+    .language-selector label {
+    color: #ffffff; /* White text color for the label */
+    }
+
+    .language-selector select {
+    background-color: #444444; /* Slightly lighter dark background for select */
+    color: #ffffff; /* White text color for the options */
+    border: 1px solid #666666; /* Light border for the select */
+    }
+
+    .language-selector select:hover {
+    background-color: #555555; /* Slightly lighter background on hover */
+    }
+
+    .language-selector select:focus {
+    border-color: #ffffff; /* White border on focus */
+    background-color: #666666; /* Even lighter background on focus */
+    }
+
+    .footer-inner-wrap {
+        background-color: var(--izzy-header-color-dark);
+    }
 }

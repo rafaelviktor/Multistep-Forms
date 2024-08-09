@@ -1,77 +1,104 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
-import API from './API.json'
+import Header from './Header.jsx';
+import Footer from './Footer.jsx';
+import APIPTBR from './api-pt-br.json';
+import APIENUS from './api-en-us.json';
+import ptBR from './assets/lang/pt-br';
+import enUS from './assets/lang/en-US';
+
+const translations = {
+  en: enUS,
+  pt: ptBR
+};
+
+const apis = {
+  en: APIENUS,
+  pt: APIPTBR
+}
 
 function App() {
+  const [language, setLanguage] = useState(localStorage.getItem('language') || 'en');
+
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+    localStorage.setItem('language', lang);
+  };
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) {
+      setLanguage(storedLanguage);
+    }
+  }, [language]);
+
   const [currentStep, setCurrentStep] = useState(0);
   const [finalizado, setFinalizado] = useState(false);
-  const [TitlPerg, setTitlPerg] = useState('')
-  const [DescrPerg, setDescrPerg] = useState('Gostariamos de saber seu nível de satisfação através deste breve questionário.')
-  const [buttonName, setButtonName] = useState('Iniciar');
+  const [questionTitle, setQuestionTitle] = useState('');
+  const [questionDescription, setQuestionDescription] = useState(translations[language].startDescription);
+  const [buttonName, setButtonName] = useState(translations[language].startButton);
 
   const alpha = Array.from(Array(26)).map((e, i) => i + 65);
   const alphabet = alpha.map((x) => String.fromCharCode(x));
 
   useEffect(() => {
-    setTitlPerg(API.Nome)
+    setQuestionTitle(apis[language].Name);
   }, []);
 
   function nextStep() {
-    var obj = API.Perguntas;
-    if(currentStep != obj.length) {
-      if(obj[currentStep].Tipo == 1) { //TIPO 1 Uma escolha 
-        setDescrPerg('Selecione apenas uma das opções');
+    var obj = apis[language].Questions;
+    if (currentStep != obj.length) {
+      if (obj[currentStep].Type == 1) { //TYPE 1 Single choice
+        setQuestionDescription(translations[language].selectOne);
       } else {
-        setDescrPerg('Selecione uma ou mais opções');
+        setQuestionDescription(translations[language].selectMultiple);
       }
 
-      for(var i = 0; i < obj[currentStep].Respostas.length; i++) {
+      for (var i = 0; i < obj[currentStep].Answers.length; i++) {
         var element = document.getElementById(i);
-        if(element != null)
-          if(element.classList.contains("selected")) {
+        if (element != null)
+          if (element.classList.contains("selected")) {
             element.classList.remove("selected");
           }
       }
     }
-    if(currentStep > (API.Perguntas.length-1)) {
+    if (currentStep > (apis[language].Questions.length - 1)) {
       setFinalizado(true);
-      setTitlPerg('Agradecemos pelo feedback!')
-      setDescrPerg('Respostas registradas com sucesso.');
-    } else if(currentStep == API.Perguntas.length-1) {
-      setCurrentStep(currentStep+1)
-      setButtonName('Enviar respostas');
-      setTitlPerg(API.Perguntas[currentStep].Nome)
+      setQuestionTitle(translations[language].thanksFeedback);
+      setQuestionDescription(translations[language].sentMessage);
+    } else if (currentStep == apis[language].Questions.length - 1) {
+      setCurrentStep(currentStep + 1);
+      setButtonName(translations[language].sendButton);
+      setQuestionTitle(apis[language].Questions[currentStep].Name);
     } else {
-      setTitlPerg(API.Perguntas[currentStep].Nome)
-      setButtonName('Próximo');
-      setCurrentStep(currentStep+1)
+      setQuestionTitle(apis[language].Questions[currentStep].Name);
+      setButtonName(translations[language].nextButton);
+      setCurrentStep(currentStep + 1);
     }
   }
 
   function selectOption(idx) {
-    var obj = API.Perguntas[currentStep-1];
-    if(obj.Tipo == 1) { //TIPO 1 Uma escolha
-      for(var i = 0; i < obj.Respostas.length; i++) {
+    var obj = apis[language].Questions[currentStep - 1];
+    if (obj.Type == 1) { //TYPE 1 Single choice
+      for (var i = 0; i < obj.Answers.length; i++) {
         var element = document.getElementById(i);
-        if(element != null)
-          if(element.classList.contains("selected")) {
+        if (element != null)
+          if (element.classList.contains("selected")) {
             element.classList.remove("selected");
           }
       }
       var element = document.getElementById(idx);
-      if(element != null) {
-        if(element.classList.contains("selected")) {
+      if (element != null) {
+        if (element.classList.contains("selected")) {
           element.classList.remove("selected");
         } else {
           element.classList.add("selected");
         }
       }
-    } else { //TIPO 2 Múltipla escolha
+    } else { //TYPE 2 Multiple choice
       var element = document.getElementById(idx);
-      if(element != null) {
-        if(element.classList.contains("selected")) {
+      if (element != null) {
+        if (element.classList.contains("selected")) {
           element.classList.remove("selected");
         } else {
           element.classList.add("selected");
@@ -82,28 +109,32 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header language={language} changeLanguage={changeLanguage} />
       <main>
         <div className='container'>
           <section>
-          <span className='text-muted'>{currentStep == 0 ? API.Perguntas.length+' Pergunta(s)':'Pergunta '+currentStep+' de '+API.Perguntas.length}</span>
-            <h2>{TitlPerg}</h2>
-            <span>{DescrPerg}</span>
+            <span className='text-muted'>
+              {currentStep == 0
+                ? apis[language].Questions.length + ` ${translations[language].question}(s)`
+                : `${translations[language].question} ` + currentStep + ` ${translations[language].of} ` + apis[language].Questions.length}
+            </span>
+            <h2>{questionTitle}</h2>
+            <span>{questionDescription}</span>
           </section>
-          {currentStep != 0 && finalizado != true &&
+          {currentStep != 0 && !finalizado &&
           <section>
             <ul>
-            {API.Perguntas[currentStep-1].Respostas.map(function(op, idx){
-              return (<li key={idx} id={idx} onClick={() => selectOption(idx)}><span className='item'>{alphabet[idx]}</span> {op.Nome}</li>)
-            })}
+              {apis[language].Questions[currentStep - 1].Answers.map(function(op, idx) {
+                return (<li key={idx} id={idx} onClick={() => selectOption(idx)}><span className='item'>{alphabet[idx]}</span> {op.Name}</li>);
+              })}
             </ul>
           </section>}
-          {finalizado != true && <button className='o-btn o-btn-action' onClick={() => nextStep()}><span>{buttonName}</span></button>}
+          {!finalizado && <button className='o-btn o-btn-action' onClick={() => nextStep()}><span>{buttonName}</span></button>}
         </div>
       </main>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

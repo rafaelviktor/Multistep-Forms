@@ -1,0 +1,79 @@
+{
+    "Name": "Treinamento Financeiro",
+    "Questions": [
+        {
+            "id": 1,
+            "Name": "Como você avalia o sistema de gestão em geral?",
+            "Type": 1,
+            "Answers": [
+                { "Id": 3, "Name": "Bom" },
+                { "Id": 4, "Name": "Médio" },
+                { "Id": 5, "Name": "Ruim" },
+                { "Id": 6, "Name": "Péssimo" }
+            ]
+        },
+        {
+            "id": 2,
+            "Name": "Como você avalia a eficiência dos funcionários ao utilizar o sistema?",
+            "Type": 3,
+            "Answers": [
+                { "Id": 1, "Name": "Ruins" },
+                { "Id": 2, "Name": "Regulares" },
+                { "Id": 3, "Name": "Bons" },
+                { "Id": 4, "Name": "Excelentes" }
+            ] 
+        },
+        {
+            "id": 3,
+            "Name": "Qual a sua opinião sobre a interface do sistema?",
+            "Type": 5,
+            "Answers": [
+                { "Id": 1, "Name": "Insatisfatória" },
+                { "Id": 2, "Name": "Satisfatória" },
+                { "Id": 3, "Name": "Muito Boa" }
+            ]
+        },
+        {
+            "id": 4,
+            "Name": "O sistema atende às suas necessidades de forma eficaz?",
+            "Type": 1,
+            "Answers": [
+                { "Id": 3, "Name": "Sim" },
+                { "Id": 4, "Name": "Não" }
+            ]
+        },
+        {
+            "id": 5,
+            "Name": "Como você avalia a qualidade do suporte técnico oferecido?",
+            "Type": 5,
+            "Answers": [
+                { "Id": 1, "Name": "Muito Ruim" },
+                { "Id": 2, "Name": "Ruim" },
+                { "Id": 3, "Name": "Bom" },
+                { "Id": 4, "Name": "Excelente" }
+            ]
+        },
+        {
+            "id": 6,
+            "Name": "Quão fácil é para você encontrar informações e recursos dentro do sistema?",
+            "Type": 3,
+            "Answers": [
+                { "Id": 1, "Name": "Muito Difícil" },
+                { "Id": 2, "Name": "Difícil" },
+                { "Id": 3, "Name": "Fácil" },
+                { "Id": 4, "Name": "Muito Fácil" }
+            ] 
+        },
+        {
+            "id": 7,
+            "Name": "Qual a probabilidade de você recomendar este sistema para outras pessoas?",
+            "Type": 5,
+            "Answers": [
+                { "Id": 1, "Name": "Muito Improvável" },
+                { "Id": 2, "Name": "Improvável" },
+                { "Id": 3, "Name": "Provável" },
+                { "Id": 4, "Name": "Muito Provável" }
+            ]
+        }
+    ]
+}

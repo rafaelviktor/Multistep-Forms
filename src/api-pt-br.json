@@ -26,7 +26,7 @@
         {
             "id": 3,
             "Name": "Qual a sua opinião sobre a interface do sistema?",
-            "Type": 5,
+            "Type": 0,
             "Answers": [
                 { "Id": 1, "Name": "Insatisfatória" },
                 { "Id": 2, "Name": "Satisfatória" },
@@ -45,7 +45,7 @@
         {
             "id": 5,
             "Name": "Como você avalia a qualidade do suporte técnico oferecido?",
-            "Type": 5,
+            "Type": 0,
             "Answers": [
                 { "Id": 1, "Name": "Muito Ruim" },
                 { "Id": 2, "Name": "Ruim" },
@@ -67,7 +67,7 @@
         {
             "id": 7,
             "Name": "Qual a probabilidade de você recomendar este sistema para outras pessoas?",
-            "Type": 5,
+            "Type": 0,
             "Answers": [
                 { "Id": 1, "Name": "Muito Improvável" },
                 { "Id": 2, "Name": "Improvável" },

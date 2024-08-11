@@ -9,7 +9,7 @@ function Header({ language, changeLanguage }) {
 
   return (
     <header id="header">
-      <div className="container">
+      <div className="container container-flex">
         <h1>Example Forms</h1>
         <div className="language-selector">
           <label htmlFor="language">Language: </label>

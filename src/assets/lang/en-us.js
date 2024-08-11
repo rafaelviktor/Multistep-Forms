@@ -9,7 +9,8 @@ const enUS = {
     thanksFeedback: "Thank you for your feedback!",
     sentMessage: "Responses registered successfully.",
     selectOne: "Select only one option",
-    selectMultiple: "Select one or more options"
+    selectMultiple: "Select one or more options",
+    selectOpen: "Open-ended question, please elaborate"
   };
   
   export default enUS;

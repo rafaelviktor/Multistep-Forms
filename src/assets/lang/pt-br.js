@@ -9,7 +9,8 @@ const ptBR = {
     thanksFeedback: "Agradecemos pelo feedback!",
     sentMessage: "Respostas registradas com sucesso.",
     selectOne: "Selecione apenas uma das opções",
-    selectMultiple: "Selecione uma ou mais opções"
+    selectMultiple: "Selecione uma ou mais opções",
+    selectOpen: "Pergunta aberta, por favor discorra sobre"
   };
   
   export default ptBR;

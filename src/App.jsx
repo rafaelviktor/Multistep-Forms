@@ -5,7 +5,7 @@ import Footer from './Footer.jsx'
 import APIPTBR from './api-pt-br.json'
 import APIENUS from './api-en-us.json'
 import ptBR from './assets/lang/pt-br'
-import enUS from './assets/lang/en-US'
+import enUS from './assets/lang/en-us'
 
 const translations = {
   en: enUS,
